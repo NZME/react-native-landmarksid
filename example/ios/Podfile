@@ -8,6 +8,8 @@ target 'LandmarksidExample' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'LandmarksID/LO', :git => 'https://github.com/LANDMARKSID/LandmarksID-iOS.git', :tag => '2.5.1'
+
   pod 'react-native-landmarksid', :path => '../..'
 
   # Enables Flipper.

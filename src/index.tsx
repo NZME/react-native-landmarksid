@@ -1,7 +1,7 @@
 import { NativeModules } from 'react-native';
 
 type LandmarksidType = {
-  multiply(a: number, b: number): Promise<number>;
+  initialize(appId: string, appSecret: string): Promise<void>;
 };
 
 const { Landmarksid } = NativeModules;

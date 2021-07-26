@@ -22,13 +22,8 @@ public class LandmarksidModule extends ReactContextBaseJavaModule {
         return NAME;
     }
 
-
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
     @ReactMethod
-    public void multiply(int a, int b, Promise promise) {
-        promise.resolve(a * b);
+    public void initialize(String appId, String appSecret) {
+    // TODO(matej): implement android tracking
     }
-
-    public static native int nativeMultiply(int a, int b);
 }

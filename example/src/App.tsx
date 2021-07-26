@@ -6,8 +6,12 @@ import Landmarksid from 'react-native-landmarksid';
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
+  const appId = 'APP_ID';
+  const appSecret = 'APP_SECRET';
+
   React.useEffect(() => {
-    Landmarksid.multiply(3, 7).then(setResult);
+    Landmarksid.initialize(appId, appSecret);
+    setResult(0);
   }, []);
 
   return (

@@ -8,6 +8,11 @@ React native bridge for landmarksid location tracking
 npm install react-native-landmarksid
 ```
 
+Include the LandmarksID pod in the Podfile. Usually located in `iod/Podfile`
+```
+pod 'LandmarksID/LO', :git => 'https://github.com/LANDMARKSID/LandmarksID-iOS.git', :tag => '2.5.1'
+```
+
 ## Usage
 
 ```js
@@ -15,7 +20,7 @@ import Landmarksid from "react-native-landmarksid";
 
 // ...
 
-const result = await Landmarksid.multiply(3, 7);
+const result = await Landmarksid.initialize('APP_ID', 'APP_SECRET');
 ```
 
 ## Contributing

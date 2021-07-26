@@ -1,19 +1,24 @@
 #import "Landmarksid.h"
+#import <LandmarksIDSDK.h>
 
 @implementation Landmarksid
+{
+    LandmarksIDManagerDelegate  *_landmarksIdManager;
+    NSString *_appId;
+    NSString *_appSecret;
+}
 
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId appSecret:(nonnull NSString *)appSecret)
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
+    __appId = _appId;
+    _appSecret = appSecret;
+    if (_landmarksIdManager == nil) {
+     _landmarksIdManager = LandmarksIDManagerDelegate.initialize(appId, appSecret: appSecret);
 
-  resolve(result);
+      _landmarksIdManager.setup()
+    }
 }
 
 @end

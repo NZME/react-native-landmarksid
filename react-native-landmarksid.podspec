@@ -15,5 +15,8 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm}"
 
+  # NODE: LandmarksID pod need to be added to the project podfile when including this pod.
+  s.weak_framework = 'LandmarksID/LO'
+
   s.dependency "React-Core"
 end
