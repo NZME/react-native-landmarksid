@@ -10,7 +10,12 @@ export default function App() {
   const appSecret = 'APP_SECRET';
 
   React.useEffect(() => {
-    Landmarksid.initialize(appId, appSecret);
+    Landmarksid.initialize(appId, appSecret, {
+      customerId: 'test-user',
+      country: 'Germany',
+      code: 49,
+      score: 23.58,
+    });
     setResult(0);
   }, []);
 

@@ -1,0 +1,6 @@
+framework module LandmarksIDSDK {
+  umbrella header "LandmarksIDSDK.h"
+
+  export *
+  module * { export * }
+}

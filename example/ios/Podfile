@@ -9,7 +9,7 @@ target 'LandmarksidExample' do
   use_react_native!(:path => config["reactNativePath"])
 
 #   pod 'LandmarksID/LO', :git => 'https://github.com/LANDMARKSID/LandmarksID-iOS.git', :tag => '2.5.1'
-  pod 'LandmarksID', :git => 'https://github.com/matejdr/LandmarksID-iOS.git'
+#   pod 'LandmarksID', :git => 'https://github.com/matejdr/LandmarksID-iOS.git'
 
   pod 'react-native-landmarksid', :path => '../..'
 

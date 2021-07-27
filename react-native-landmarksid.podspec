@@ -15,8 +15,20 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm}"
 
+  s.frameworks = 'CoreLocation', 'CoreTelephony', 'SystemConfiguration', 'Foundation', 'AdSupport', 'UIKit'
+  s.weak_framework = 'AppTrackingTransparency'
+
   # NODE: LandmarksID pod need to be added to the project podfile when including this pod.
-  s.weak_framework = 'LandmarksID'
+#   s.weak_framework = 'LandmarksID'
 
   s.dependency "React-Core"
+
+  s.default_subspec = 'LO'
+  s.subspec 'LO' do |sp|
+    sp.vendored_frameworks = 'Libraries/LandmarksID-LO/LandmarksIDSDK.framework'
+  end
+  s.subspec 'LOD' do |sp|
+    sp.dependency 'BluedotPointSDK', '~> 15.3'
+    sp.vendored_frameworks = 'Libraries/LandmarksID-LOD/LandmarksIDSDK.framework'
+  end
 end

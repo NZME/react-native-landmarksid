@@ -69,9 +69,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - LandmarksID (2.5.0):
-    - LandmarksID/LO (= 2.5.0)
-  - LandmarksID/LO (2.5.0)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
   - RCTRequired (0.63.4)
@@ -242,6 +239,9 @@ PODS:
   - React-jsinspector (0.63.4)
   - react-native-landmarksid (0.1.0):
     - React-Core
+    - react-native-landmarksid/LO (= 0.1.0)
+  - react-native-landmarksid/LO (0.1.0):
+    - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
   - React-RCTAnimation (0.63.4):
@@ -331,7 +331,6 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (= 0.80.0)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - LandmarksID (from `https://github.com/matejdr/LandmarksID-iOS.git`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
   - React (from `../node_modules/react-native/`)
@@ -385,8 +384,6 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  LandmarksID:
-    :git: https://github.com/matejdr/LandmarksID-iOS.git
   RCTRequired:
     :path: "../node_modules/react-native/Libraries/RCTRequired"
   RCTTypeSafety:
@@ -432,11 +429,6 @@ EXTERNAL SOURCES:
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
-CHECKOUT OPTIONS:
-  LandmarksID:
-    :commit: 78d3c348caf64044a571febecffd27572fa5450f
-    :git: https://github.com/matejdr/LandmarksID-iOS.git
-
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
@@ -454,7 +446,6 @@ SPEC CHECKSUMS:
   FlipperKit: 57764956d2f0f972c1af5075a9c8f05ca5b12349
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  LandmarksID: eada3a40c101aa6acbdf0a44c3e20959138ffd45
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCTRequired: 082f10cd3f905d6c124597fd1c14f6f2655ff65e
@@ -467,7 +458,7 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-landmarksid: c9013fa39b71ea958daeaedc4c7b11d06e273501
+  react-native-landmarksid: ce2a9484b560cb7ef8427a8fe8940d5f4d19b77b
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -481,6 +472,6 @@ SPEC CHECKSUMS:
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 7f6137a89aa242f4b3f88b2a2485ec96f4f5197f
+PODFILE CHECKSUM: 381bf101eceeff0e004acd2f0354d581212f7766
 
 COCOAPODS: 1.10.1

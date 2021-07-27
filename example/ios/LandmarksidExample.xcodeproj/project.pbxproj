@@ -357,7 +357,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LandmarksidExample/Pods-LandmarksidExample-frameworks.sh",
-				"${PODS_ROOT}/LandmarksID/LandmarksID-LO/LandmarksIDSDK.framework",
+				"${PODS_ROOT}/../../../Libraries/LandmarksID-LO/LandmarksIDSDK.framework",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
 			);
 			name = "[CP] Embed Pods Frameworks";
