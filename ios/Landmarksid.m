@@ -9,7 +9,44 @@
     NSDictionary *_options;
 }
 
+- (void) dealloc
+{
+    // If you don't remove yourself as an observer, the Notification Center
+    // will continue to try and send notification objects to the deallocated
+    // object.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (id) init
+{
+    self = [super init];
+    if (!self) return nil;
+
+    for (NSString *name in @[
+             UIApplicationDidBecomeActiveNotification,
+             UIApplicationDidEnterBackgroundNotification,
+             UIApplicationWillTerminateNotification
+           ]) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleAppStateDidChange:)
+                                                     name:name
+                                                   object:nil];
+      }
+
+    return self;
+}
+
 RCT_EXPORT_MODULE()
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
+- (dispatch_queue_t)methodQueue
+{
+    return dispatch_get_main_queue();
+}
 
 RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId
                   appSecret:(nonnull NSString *)appSecret
@@ -25,7 +62,6 @@ RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId
         if (_options == nil) {
             for (NSString *key in _options) {
                 id value = _options[key];
-                NSLog(@"Value: %@ for key: %@", value, key);
                 if ([key isEqualToString:@"customerId"]) {
                     customerId = value;
                 } else if ([value isKindOfClass:[NSString class]]) {
@@ -71,28 +107,19 @@ RCT_EXPORT_METHOD(stopTracking)
     }
 }
 
-#pragma mark UIApplicationDelegate implementation
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
+- (void)handleAppStateDidChange:(NSNotification *)notification
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    if (_landmarksIdManager != nil) {
-        [_landmarksIdManager startTracking];
+    if ([notification.name isEqualToString:UIApplicationDidBecomeActiveNotification]) {
+        if (_landmarksIdManager != nil) {
+            [_landmarksIdManager startTracking];
+        }
+    } else if ([notification.name isEqualToString:UIApplicationDidEnterBackgroundNotification]) {
+        if (_landmarksIdManager != nil) {
+            [_landmarksIdManager startTracking];
+        }
+    } else if ([notification.name isEqualToString:UIApplicationWillTerminateNotification]) {
+        [[LandmarksIDManagerDelegate sharedManager] applicationWillTerminate];
     }
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    if (_landmarksIdManager != nil) {
-        [_landmarksIdManager startTracking];
-    }
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    [[LandmarksIDManagerDelegate sharedManager] applicationWillTerminate];
 }
 
 @end
