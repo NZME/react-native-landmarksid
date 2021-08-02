@@ -1,14 +1,7 @@
 package com.reactnativelandmarksid;
 
-import android.app.Activity;
-import android.content.Intent;
-
-import android.util.Log;
-
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 
-import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -16,12 +9,11 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.module.annotations.ReactModule;
-import com.facebook.react.modules.core.PermissionAwareActivity;
 import com.landmarksid.lo.LandmarksID;
 import com.landmarksid.lo.formats.CustomData;
 
 @ReactModule(name = LandmarksidModule.NAME)
-public class LandmarksidModule extends ReactContextBaseJavaModule implements ActivityEventListener, ActivityCompat.OnRequestPermissionsResultCallback {
+public class LandmarksidModule extends ReactContextBaseJavaModule {
     public static final String NAME = "Landmarksid";
     private static LandmarksID landmarksId;
     private final ReactApplicationContext reactContext;
@@ -29,7 +21,6 @@ public class LandmarksidModule extends ReactContextBaseJavaModule implements Act
     public LandmarksidModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-        reactContext.addActivityEventListener(this);
     }
 
     @Override
@@ -86,26 +77,11 @@ public class LandmarksidModule extends ReactContextBaseJavaModule implements Act
     public void stopTracking() {
       // Do nothing as Android does not support this.
     }
-
-    @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-      PermissionAwareActivity activity2 = (PermissionAwareActivity) activity;
-      if (activity == null) {
-        // Handle null case
-      }
-      Log.e("activity", String.valueOf(activity));
-      Log.e("requestCode", String.valueOf(requestCode));
-      Log.e("resultCode", String.valueOf(resultCode));
-      Log.e("data", String.valueOf(data));
-    }
-
-    @Override
-    public void onNewIntent(Intent intent) {
-      Log.e("intent", String.valueOf(intent));
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-      landmarksId.onRequestPermissionsResult(this.reactContext, requestCode, permissions, grantResults);
-    }
+//
+//    @Override
+//    public boolean onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//      Log.e("matej: requestCode", String.valueOf(requestCode));
+//      landmarksId.onRequestPermissionsResult(this.reactContext, requestCode, permissions, grantResults);
+//      return true;
+//    }
 }
