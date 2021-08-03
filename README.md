@@ -13,6 +13,20 @@ Include the LandmarksID pod in the Podfile. Usually located in `iod/Podfile`
 pod 'LandmarksID/LO', :git => 'https://github.com/LANDMARKSID/LandmarksID-iOS.git', :tag => '2.5.1'
 ```
 
+Add a repository to android build.gradle file.
+
+```
+repositories {
+    ...
+
+    maven {
+      url "https://jitpack.io"
+      credentials {
+        username "jp_ek92aukm6a00g1plijctt5an8j"
+      }
+    }
+}
+```
 ## Usage
 
 ```js
