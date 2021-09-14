@@ -33,7 +33,7 @@ public class LandmarksidModule extends ReactContextBaseJavaModule {
     public void initialize(String appId, String appSecret, ReadableMap options) {
         if (landmarksId == null) {
             LandmarksID.Options trackOptions = new LandmarksID.Options()
-                .setAppMetadata(appId, appSecret);
+                    .setAppMetadata(appId, appSecret);
 
             String customerId = "sample-id";
             CustomData customData = new CustomData();
@@ -75,7 +75,7 @@ public class LandmarksidModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void stopTracking() {
-      // Do nothing as Android does not support this.
+        // Do nothing as Android does not support this.
     }
 //
 //    @Override

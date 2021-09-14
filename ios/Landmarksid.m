@@ -57,29 +57,27 @@ RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId
     _options = options;
 
     if (_landmarksIdManager == nil) {
-        LandmarksIDManagerDelegate *mySharedManager = [LandmarksIDManagerDelegate sharedManager];
         NSString *customerId;
         if (_options == nil) {
             for (NSString *key in _options) {
                 id value = _options[key];
                 if ([key isEqualToString:@"customerId"]) {
                     customerId = value;
+                    [[LandmarksIDManagerDelegate sharedManager] setCustomerId:customerId];
                 } else if ([value isKindOfClass:[NSString class]]) {
-                    [mySharedManager setCustomString:key
-                                               value:value];
+                    [[LandmarksIDManagerDelegate sharedManager] setCustomString:key
+                                                                          value:value];
                 } else if ([value isKindOfClass:[NSNumber class]]) {
                     if (strcmp([value objCType], @encode(float)) == 0) {
-                        [mySharedManager setCustomFloat:key
-                                                  value:[(NSNumber *)value floatValue]];
+                        [[LandmarksIDManagerDelegate sharedManager] setCustomFloat:key
+                                                                             value:[(NSNumber *)value floatValue]];
                     } else if (strcmp([value objCType], @encode(int)) == 0) {
-                        [mySharedManager setCustomInt:key
-                                                value:[(NSNumber *)value intValue]];
+                        [[LandmarksIDManagerDelegate sharedManager] setCustomInt:key
+                                                                           value:[(NSNumber *)value intValue]];
                     }
                 }
             }
         }
-
-        mySharedManager.customerId = customerId;
 
         [[LandmarksIDManagerDelegate sharedManager] requestLocationPermissions:kCLAuthorizationStatusAuthorizedWhenInUse];
         _landmarksIdManager = [LandmarksIDManagerDelegate initialize:appId
