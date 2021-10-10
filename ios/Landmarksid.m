@@ -57,8 +57,14 @@ RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId
     _options = options;
 
     if (_landmarksIdManager == nil) {
+        [[LandmarksIDManagerDelegate sharedManager] requestLocationPermissions:kCLAuthorizationStatusAuthorizedWhenInUse];
+        _landmarksIdManager = [LandmarksIDManagerDelegate initialize:appId
+                                                           appSecret:appSecret];
+
+        [_landmarksIdManager setup];
+
         NSString *customerId;
-        if (_options == nil) {
+        if (_options != nil) {
             for (NSString *key in _options) {
                 id value = _options[key];
                 if ([key isEqualToString:@"customerId"]) {
@@ -79,11 +85,6 @@ RCT_EXPORT_METHOD(initialize:(nonnull NSString *)appId
             }
         }
 
-        [[LandmarksIDManagerDelegate sharedManager] requestLocationPermissions:kCLAuthorizationStatusAuthorizedWhenInUse];
-        _landmarksIdManager = [LandmarksIDManagerDelegate initialize:appId
-                                                           appSecret:appSecret];
-
-        [_landmarksIdManager setup];
         // start tracking imediately if the application is active
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
             [_landmarksIdManager startTracking];
