@@ -1,4 +1,4 @@
-package com.reactnativelandmarksid;
+package com.matejdr.landmarksid;
 
 import androidx.annotation.NonNull;
 

@@ -8,6 +8,7 @@ type LandmarksidType = {
   ): void;
   startTracking(): void;
   stopTracking(): void;
+  setCustomData(options: Record<string, string | number>): void;
 };
 
 const { Landmarksid } = NativeModules;

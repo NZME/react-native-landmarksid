@@ -2,5 +2,5 @@ rootProject.name = 'LandmarksidExample'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 
-include ':reactnativelandmarksid'
-project(':reactnativelandmarksid').projectDir = new File(rootProject.projectDir, '../../android')
+include ':react-native-landmarksid'
+project(':react-native-landmarksid').projectDir = new File(rootProject.projectDir, '../../android')

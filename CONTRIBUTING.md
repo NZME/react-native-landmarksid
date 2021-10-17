@@ -53,7 +53,7 @@ yarn test
 
 To edit the Objective-C files, open `example/ios/LandmarksidExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-landmarksid`.
 
-To edit the Kotlin files, open `example/android` in Android studio and find the source files at `reactnativelandmarksid` under `Android`.
+To edit the Kotlin files, open `example/android` in Android studio and find the source files at `landmarksid` under `Android`.
 
 ### Commit message convention
 

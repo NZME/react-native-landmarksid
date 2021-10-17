@@ -204,7 +204,7 @@ dependencies {
         implementation jscFlavor
     }
 
-    implementation project(':reactnativelandmarksid')
+    implementation project(':react-native-landmarksid')
 }
 
 // Run this once to be able to run the application with BUCK
