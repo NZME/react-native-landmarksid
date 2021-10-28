@@ -22,7 +22,7 @@ repositories {
     maven {
       url "https://jitpack.io"
       credentials {
-        username "jp_ek92aukm6a00g1plijctt5an8j"
+        username "[ENTER PROVIDED USERNAME HERE]"
       }
     }
 }
@@ -34,7 +34,13 @@ import Landmarksid from "react-native-landmarksid";
 
 // ...
 
-const result = await Landmarksid.initialize('APP_ID', 'APP_SECRET');
+const result = await Landmarksid.initialize('APP_ID', 'APP_SECRET', {test_param: 'test'});
+```
+
+Set custom data.
+
+```js
+Landmarksid.setCustomData({test_param: 'test'});
 ```
 
 ## Contributing

@@ -46,6 +46,20 @@ export default function App() {
       score: 23.58,
     });
     setResult('Landmarkid initialized.');
+
+    let setDataTimer = setTimeout(() => {
+      Landmarksid.setCustomData({
+        customerId: 'test-user',
+        country: 'Norway',
+        code: 49,
+        score: 23.58,
+      });
+      setResult('Landmarkid.setCustomData called.');
+    }, 3000);
+
+    return () => {
+      clearTimeout(setDataTimer);
+    };
   }, []);
 
   return (

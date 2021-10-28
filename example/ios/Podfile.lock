@@ -247,10 +247,10 @@ PODS:
   - React-jsinspector (0.63.4)
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-landmarksid (0.1.0):
+  - react-native-landmarksid (0.1.1):
     - React-Core
-    - react-native-landmarksid/LO (= 0.1.0)
-  - react-native-landmarksid/LO (0.1.0):
+    - react-native-landmarksid/LO (= 0.1.1)
+  - react-native-landmarksid/LO (0.1.1):
     - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
@@ -468,7 +468,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
-  react-native-landmarksid: ce2a9484b560cb7ef8427a8fe8940d5f4d19b77b
+  react-native-landmarksid: d27d3e97d184939130d99b8ccd211570cadc5101
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -484,4 +484,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b4219f3735c96fb64503cb8a4dc1f8a61277c773
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2

@@ -106,6 +106,29 @@ RCT_EXPORT_METHOD(stopTracking)
     }
 }
 
+RCT_EXPORT_METHOD(setCustomData:(NSDictionary *)options)
+{
+    if (_landmarksIdManager != nil) {
+        if (_options != nil) {
+            for (NSString *key in _options) {
+                id value = _options[key];
+                if ([value isKindOfClass:[NSString class]]) {
+                    [[LandmarksIDManagerDelegate sharedManager] setCustomString:key
+                                                                          value:value];
+                } else if ([value isKindOfClass:[NSNumber class]]) {
+                    if (strcmp([value objCType], @encode(float)) == 0) {
+                        [[LandmarksIDManagerDelegate sharedManager] setCustomFloat:key
+                                                                             value:[(NSNumber *)value floatValue]];
+                    } else if (strcmp([value objCType], @encode(int)) == 0) {
+                        [[LandmarksIDManagerDelegate sharedManager] setCustomInt:key
+                                                                           value:[(NSNumber *)value intValue]];
+                    }
+                }
+            }
+        }
+    }
+}
+
 - (void)handleAppStateDidChange:(NSNotification *)notification
 {
     if ([notification.name isEqualToString:UIApplicationDidBecomeActiveNotification]) {
