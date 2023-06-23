@@ -1,6 +1,6 @@
 {
   "name": "react-native-landmarksid",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React native bridge for landmarksid location tracking",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
