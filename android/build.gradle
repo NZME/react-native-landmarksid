@@ -55,5 +55,5 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.gitlab.landmarksid:sdk-android-lo:1.6.3"
+    implementation "com.gitlab.landmarksid:sdk-android-lo:1.6.6"
 }
