@@ -9,8 +9,8 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.module.annotations.ReactModule;
-import com.landmarksid.lo.LandmarksID;
-import com.landmarksid.lo.formats.CustomData;
+import com.landmarksid.lo.core.LandmarksID;
+import com.landmarksid.lo.types.CustomData;
 
 @ReactModule(name = LandmarksidModule.NAME)
 public class LandmarksidModule extends ReactContextBaseJavaModule {
@@ -51,11 +51,11 @@ public class LandmarksidModule extends ReactContextBaseJavaModule {
 
           switch (type) {
             case Number:
-              customData.addInt(key, options.getInt(key));
-              customData.addFloat(key, (float) options.getDouble(key));
+              customData.add(key, options.getInt(key));
+              customData.add(key, (float) options.getDouble(key));
               break;
             case String:
-              customData.addString(key, options.getString(key));
+              customData.add(key, options.getString(key));
               break;
           }
         }
@@ -90,11 +90,11 @@ public class LandmarksidModule extends ReactContextBaseJavaModule {
 
         switch (type) {
           case Number:
-            customData.addInt(key, options.getInt(key));
-            customData.addFloat(key, (float) options.getDouble(key));
+            customData.add(key, options.getInt(key));
+            customData.add(key, (float) options.getDouble(key));
             break;
           case String:
-            customData.addString(key, options.getString(key));
+            customData.add(key, options.getString(key));
             break;
         }
       }
